@@ -1,9 +1,8 @@
-// Variables
 let eyeWidth = 30;
 let eyeHeight = 20;
 let pupilWidth = 10;
 let pupilHeight = 10;
-let toggle = false; // Variable to track toggle state
+let toggle = false; 
 
 function setup() {
   createCanvas(340, 340); 
@@ -11,7 +10,6 @@ function setup() {
 }
 
 function draw() {
-  // Dynamic background color
   background(214 - mouseX / 2, 168 - mouseY / 2, 228 - mouseX / 4);
 
   stroke(120, 81, 169);
@@ -22,18 +20,18 @@ function draw() {
   if (toggle) {
     // Eyes Closed
     fill(120, 81, 169);
-    ellipse(148, 170, eyeWidth, 2);  // Left eye background
-    ellipse(198, 170, eyeWidth, eyeHeight);  // Right eye background
+    ellipse(148, 170, eyeWidth, 2);  // Left 
+    ellipse(198, 170, eyeWidth, eyeHeight);  // Right 
   } else {
     // Eyes Open
     fill(255);
     noStroke();
-    ellipse(148, 170, eyeWidth, eyeHeight);  // Left eye white
-    ellipse(198, 170, eyeWidth, eyeHeight);  // Right eye white
+    ellipse(148, 170, eyeWidth, eyeHeight);  // Left 
+    ellipse(198, 170, eyeWidth, eyeHeight);  // Right 
 
     fill(0);
-    ellipse(148, 170, pupilWidth, pupilHeight);  // Left pupil
-    ellipse(198, 170, pupilWidth, pupilHeight);  // Right pupil
+    ellipse(148, 170, pupilWidth, pupilHeight);  // Left 
+    ellipse(198, 170, pupilWidth, pupilHeight);  // Right 
   }
 
   // Nose
@@ -44,7 +42,6 @@ function draw() {
   stroke(120, 81, 169);
   strokeWeight(4);
   noFill();
-  // Animated eyebrows
   let browOffset = map(mouseY, 0, height, -5, 5);
   arc(148, 155 + browOffset, 30, 10, PI, 0);  
   arc(198, 155 + browOffset, 30, 10, PI, 0);  
@@ -53,9 +50,8 @@ function draw() {
   if (mouseIsPressed) {
     fill(255);
     noStroke();
-    arc(168, 240, 60, 40, 0, PI, CHORD); // Semi-circle smile
+    arc(168, 240, 60, 40, 0, PI, CHORD); 
   } else {
-    // Regular closed mouth
     stroke(120, 81, 169);
     strokeWeight(3);
     noFill();
@@ -71,12 +67,9 @@ function draw() {
   fill(0);
   textAlign(CENTER);
   text("Click to see me close my eyes.", width/2, 320);
-  text("Click again to see me open them.", width/2, 335); // Adjusted y position
+  text("Click again to see me open them.", width/2, 335); 
 }
 
-/* FUNCTIONS */
-
 function mousePressed() {
-  // Toggle the value of toggle variable
   toggle = !toggle;
 }
