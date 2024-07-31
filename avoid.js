@@ -16,22 +16,18 @@ function draw() {
   player.display();
   player.move();
 
-  // Add new obstacles
   if (frameCount % 60 === 0) {
     obstacles.push(new Obstacle());
   }
 
-  // Update and display obstacles
   for (let i = obstacles.length - 1; i >= 0; i--) {
     obstacles[i].move();
     obstacles[i].display();
 
-    // Check for collision with player
     if (obstacles[i].hits(player)) {
       gameOver();
     }
 
-    // Remove off-screen obstacles
     if (obstacles[i].offScreen()) {
       obstacles.splice(i, 1);
       score++;
@@ -92,7 +88,6 @@ class Player {
     this.x += this.xdir * 5;
     this.y += this.ydir * 5;
 
-    // Constrain player to canvas
     this.x = constrain(this.x, 0, width - playerSize);
     this.y = constrain(this.y, 0, height - playerSize);
   }
